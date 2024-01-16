@@ -24,12 +24,13 @@ export default function AddPlayerForm({ playerAdded, setPlayerAdded, error}){
   
   return (
     <>
+    <div className="form-container">
       <h2>Add Player to Roster</h2>
       { message && <p>{ message }</p>}
 
       <form className='form' onSubmit={handleSubmit}>
         <label>
-          Name:
+          Name: <br />
           <input 
             id="name" 
             type="text" 
@@ -37,9 +38,8 @@ export default function AddPlayerForm({ playerAdded, setPlayerAdded, error}){
             onChange={ (e) => setPlayerName(e.target.value) }
           />
         </label>
-        <br/>
         <label>
-          Breed:
+          Breed: <br />
           <input 
             id="br" 
             type="text"
@@ -48,7 +48,7 @@ export default function AddPlayerForm({ playerAdded, setPlayerAdded, error}){
            />
         </label>
         <label>
-          Team ID:
+          Team ID: <br />
           <input 
             id="id" 
             type="text"
@@ -58,7 +58,7 @@ export default function AddPlayerForm({ playerAdded, setPlayerAdded, error}){
            />
         </label>
         <label>
-          Status:
+          Status: <br />
           <input 
             id="st" 
             type="text"
@@ -68,7 +68,7 @@ export default function AddPlayerForm({ playerAdded, setPlayerAdded, error}){
            />
         </label>
         <label>
-          Image URL:
+          Image URL: <br />
           <input 
             id="URL" 
             type="text"
@@ -76,8 +76,9 @@ export default function AddPlayerForm({ playerAdded, setPlayerAdded, error}){
             onChange={ (e) => setImgURL(e.target.value)}
            />
         </label>
-        <button type="submit">Submit</button>
+        <button className="button-74" type="submit" role="button">Submit</button>
       </form>
+      </div>
     </>
   );
 }

@@ -1,42 +1,65 @@
+/* Webpage-wide CSS */
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Graduate', serif;
 }
-/* Added code below */
+
 body {
   background-image: url('./images/FBField3.jpeg'); 
   background-repeat: no-repeat; 
   background-size: 100% 100%; 
   background-attachment: fixed;
 }
+
+/* Navigation Bar CSS */
 #navbar {
   padding: .75em;
   background-color: black;
   display: flex;
-  justify-content: flex-end;
-  column-gap: 10px;
+  justify-content: space-between;
+  column-gap: 15px;
   flex-wrap: wrap;
   font-family: 'Montserrat Alternates', sans-serif;
   font-weight: 800;
-  font-size: 14pt;
+  font-size: 1em;
 }
+
+.navLogo > img {
+  width: 60px;
+}
+
+.home-div > img {
+  margin-left: 35%;
+  width: 30%;
+}
+
+.navLinks{
+  display: flex;
+  align-items: center;
+}
+
 .navItem {
-  /* margin-left: 15px; */
+  margin: 0 15px 0;
 }
+
 .link{
   color:rgb(254, 254, 254);
   text-decoration: none;
 }
+
 .link:hover{
   color: #545454!important;
   text-decoration: none;
 }
+
 .link:visited{
   color:rgb(255, 255, 255);
   text-decoration: none;
 }
+
+/* Main Section CSS */
 h1 {
   margin:20px;
   text-align: center;
@@ -46,20 +69,24 @@ h1 {
   background-color: #552c0f;
   border-radius: 5px;
 }
+
 h2,h3 {
   margin:20px;
+  padding: 4px;
   text-align: center;
   color: rgb(255, 255, 255);
   background-image: url(./images/little-knobs.png);
   background-color: #552c0f;
   border-radius: 5px;
 }
+
 p {
   margin:30px 20px;
   padding:10px;
   text-align: center;
   color: rgb(255, 255, 255);
 }
+
 .home-div{
   margin: 10% 5%;
   padding: 5px;
@@ -67,17 +94,40 @@ p {
   background-color: #552c0f;
   border-radius: 5px;
 }
+.homeInfo {
+  margin:30px 20px;
+  padding:10px;
+  text-align: center;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+/* Add Player Form CSS */
 #new-player-form {
   display: flex;
   justify-content: center;
 }
 
+.form-container {
+  margin: 5% 20%;
+  padding: 10px;
+  background-image: url(./images/little-knobs.png);
+  background-color: #552c0f;
+  border-radius: 15px;
+  text-align: center;
+}
+
 form{
-  margin-top: 10px;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 5;
+  justify-content: center;
 }
 
 label{
-  width:300px;
+  grid-column: 1;
+  width:auto;
   margin: 5px;
   color:white;
 }
@@ -86,6 +136,36 @@ input{
   margin: 5px
 }
 
+.button-74 {
+  margin: 20px 0 10px 0;
+  width: 90px;
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #321e00 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  justify-self: center;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-74:hover {
+  background-color: #fff;
+}
+
+.button-74:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+/* Player Cards CSS (Roster and Single Player route) */
 ul {
   display: flex;
   flex-flow: row wrap;
@@ -129,28 +209,53 @@ li > button {
   background-image: url(./images/little-knobs.png);
   background-size: 10%;
 }
+
 .details , .remove{
   color:rgb(255, 255, 255);
   text-decoration: none;
 }
+
 .details:hover , .remove:hover{
-  color: #bfbfbf!important;
+  color: #000000!important;
   text-decoration: none;
   border-color: rgb(103, 66, 23);
   /* For some reason only the .remove btn will get the border applied. Not sure why. */
 }
+
 .details:visited , .remove:visited{
   color:rgb(255, 255, 255);
   text-decoration: none;
 }
+
+/* Player List CSS */
+.playerList {
+  margin: 5% 20%;
+  padding: 10px;
+  background-image: url(./images/little-knobs.png);
+  background-color: #552c0f;
+  border-radius: 15px;
+}
+
+.searchPlayer{
+  width: 50%;
+  margin-left: 25%;
+  text-align: center;
+}
+
+.playerUL{
+  height: fit-content;
+}
+
 .player{
   color:white;
   text-decoration: none;
 }
+
 .player:hover{
   color: #888888!important;
   text-decoration: none;
 }
+
 .player:visited{
   color:white;
   text-decoration: none;

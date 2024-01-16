@@ -1,11 +1,11 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getAllPlayers } from "../api/api";
 import { Link, useNavigate } from "react-router-dom";
 
 
 export default function PlayerList({ playerList, setPlayerList, setPlayerId, setPlayerSelected, returnRoute, setReturnRoute }){
   const navigate = useNavigate();
+  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     async function getPlayers(){
@@ -17,20 +17,34 @@ export default function PlayerList({ playerList, setPlayerList, setPlayerId, set
   },[]);
 
   return (
-    <div>
+    <div className="playerList">
       <h2>Player List</h2>
-      <ul>
-        {
-        playerList.map((player) =>{
-          return <li key={player.id} onClick={() => {
-            setPlayerId(player.id);
-            setPlayerSelected(true);
-            setReturnRoute(`/playerlist`);
-            navigate(`/players/:${player.id}`);
-              }
-            }>
-            <Link className="player" to={`/players/:id`}>{player.name}</Link>
-          </li>;
+      <input
+      className="searchPlayer"
+       type="search"
+       placeholder="Search player"
+       onChange={(e) => {setSearchInput(e.target.value)}}
+      />
+      <ul className="playerUL">
+      {
+        playerList.filter((player) => {
+          if(searchInput == ""){
+            return player.name;
+          }else if(player.name.toLowerCase().includes(searchInput.toLowerCase())){
+            return player.name;
+          }
+        }).map((player) => {
+          return(
+            <li key={player.id} onClick={() => {
+              setPlayerId(player.id);
+              setPlayerSelected(true);
+              setReturnRoute(`/playerlist`);
+              navigate(`/players/:${player.id}`);
+                }
+              }>
+              <Link className="player" to={`/players/:id`}>{player.name}</Link>
+            </li>
+          )
         })
       }
       </ul>
